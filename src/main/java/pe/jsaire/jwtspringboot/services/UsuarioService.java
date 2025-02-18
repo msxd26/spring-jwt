@@ -11,4 +11,6 @@ public interface UsuarioService {
     //Usuario findById(Long id);
 
     Usuario save(Usuario usuario);
+
+    Boolean existsByUsername(String username);
 }

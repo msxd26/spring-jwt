@@ -28,6 +28,12 @@ public class UsuarioController {
         return ResponseEntity.status(HttpStatus.CREATED).body(usuarioService.save(usuario));
     }
 
+    @PostMapping("/register")
+    public ResponseEntity<?> register(@Valid @RequestBody Usuario usuario,  BindingResult result) {
+        usuario.setAdmin(false);
+        return createUsuario(usuario, result);
+    }
+
     @GetMapping
     public ResponseEntity<?> getAllUsuarios() {
         return ResponseEntity.ok(usuarioService.findAll());
